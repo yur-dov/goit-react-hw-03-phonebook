@@ -44,6 +44,23 @@ filter: '',
   return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter))
   }
 
+  componentDidMount() {
+    const parsContact = JSON.parse(localStorage.getItem('contacts'));
+    if (parsContact) {
+      this.setState({
+      contacts: parsContact
+    })
+    }
+    
+}
+
+  componentDidUpdate(prevProps, prevState) {
+  
+    if (this.state.contacts !== prevState) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+}
+
   render() {
  
     const visibleCard = this.getVisiblCard();
