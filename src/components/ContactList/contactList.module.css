@@ -1,0 +1,11 @@
+.list_item {
+  display: flex;
+  justify-content: space-between;
+}
+.name {
+  font-weight: 600;
+}
+.number {
+  color: brown;
+  font-style: italic;
+}
